@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Calc>
+	<Variables>
+		<Variable Name="pi">3.141592653589793</Variable>
+		<Variable Name="e">2.7182818284590452354</Variable>
+	</Variables>
+	<History>
+		<HistoryLook>
+			<Type>Echo</Type>
+			<FontFamily>Lucida Console</FontFamily>
+			<FontSize>10</FontSize>
+			<FontStyle>Regular</FontStyle>
+		</HistoryLook>
+		<HistoryLook>
+			<Type>Answer</Type>
+			<FontFamily>Lucida Console</FontFamily>
+			<FontSize>10</FontSize>
+			<FontStyle>Bold</FontStyle>
+			<MarginLeft>20</MarginLeft>
+			<MarginBottom>10</MarginBottom>
+		</HistoryLook>
+		<HistoryLook>
+			<Type>Error</Type>
+			<FontFamily>Tahoma</FontFamily>
+			<FontSize>9</FontSize>
+			<FontStyle>Regular</FontStyle>
+			<TextColor>Red</TextColor>
+		</HistoryLook>
+		<HistoryLook>
+			<Type>Info</Type>
+			<FontFamily>Tahoma</FontFamily>
+			<FontSize>9</FontSize>
+			<FontStyle>Regular</FontStyle>
+			<TextColor>Green</TextColor>
+			<TextAlign>Right</TextAlign>
+		</HistoryLook>
+		<HistoryLook>
+			<Type>HelpTopic</Type>
+			<FontFamily>Tahoma</FontFamily>
+			<FontSize>10</FontSize>
+			<FontStyle>Bold</FontStyle>
+		</HistoryLook>
+		<HistoryLook>
+			<Type>HelpBody</Type>
+			<FontFamily>Tahoma</FontFamily>
+			<FontSize>9</FontSize>
+			<MarginLeft>20</MarginLeft>
+		</HistoryLook>
+	</History>
+	<Help>
+		<!-- System Commands -->
+		<HelpItem Name="help">
+			Usage: help (topic)
+			Displays help for a specified topic.
+			
+			Examples:
+			help macro
+			help variable
+			help sin
+			help +
+		</HelpItem>
+		<HelpItem Name="cls" Topic="cls command">
+			Usage: cls
+			Clears the screen.
+		</HelpItem>
+		<HelpItem Name="exit" Topic="exit command">
+			Usage: exit
+			Quits the application.
+		</HelpItem>
+
+		<!-- Features -->
+		<HelpItem Name="macro" Topic="Macros">
+			Macros are user-defined functions.  One can be defined by using the syntax:
+
+			F(X)=&lt;equation&gt;
+			Where:
+			- F is the name of the function.
+			- X is an argument that is passed into the function, and can be used in the equation.
+
+			Examples:
+
+			square(X)=X*X
+			- Creates a function called square() that will returns the variable passed in multiplied by itself.
+
+			intcalc(balance, rate, days)=balance * (rate/100) * (days/365)
+			- Creates a function that will calculate the interest accrued on a balance, given the rate and number of days.
+
+			Note: You may not create a macro with the same name as an existing function.
+		</HelpItem>
+		<HelpItem Name="variable" Topic="Variables">
+			Variables may be created to store values.  A variable can be assigned using the syntax:
+
+			X=&lt;equation&gt;
+
+			Examples:
+			X=2
+			- Assigns the value '2' to the variable X.
+
+			AMT=1000 * 1.05
+			- Assigns the value '1050' to the variable AMT.
+		</HelpItem>
+
+		<!-- Functions -->
+		<HelpItem Name="abs" Topic="abs function">
+			Usage: abs(X)
+			Returns the absolute value of X.
+		</HelpItem>
+		<HelpItem Name="acos" Topic="acos function">
+			Usage: acos(X)
+			Returns the angle whose cosine is X.
+		</HelpItem>
+		<HelpItem Name="asin" Topic="asin function">
+			Usage: asin(X)
+			Returns the angle whose sine is X.
+		</HelpItem>
+		<HelpItem Name="atan" Topic="atan function">
+			Usage: atan(X)
+			Returns the angle whose tangent is X.
+		</HelpItem>
+		<HelpItem Name="bin" Topic="bin function">
+			Usage: bin(X)
+			Returns the value of X, formatted as a binary number.
+		</HelpItem>
+		<HelpItem Name="case" Topic="case function">
+			Usage: case(V, X, A, Y, B, ... Z)
+			If V is equal to X, this function returns A.  If V is not equal to X, it checks if V is equal to Y; if so, it returns B.  If not matches are found, Z is returned.  You may put as many pairs as you want prior to Z.
+		</HelpItem>
+		<HelpItem Name="ceil" Topic="ceil function">
+			Usage: ceil(X)
+			Returns the smallest integer greater than or equal to X.
+		</HelpItem>
+		<HelpItem Name="cos" Topic="cos function">
+			Usage: cos(X)
+			Returns the cosine of X.
+		</HelpItem>
+		<HelpItem Name="cosh" Topic="cosh function">
+			Usage: cosh(X)
+			Returns the hyperbolic cosine of X.
+		</HelpItem>
+		<HelpItem Name="day" Topic="day function">
+			Usage: day(X)
+			Returns the day in a date or time span.
+		</HelpItem>
+		<HelpItem Name="days" Topic="days function">
+			Usage: days(X)
+			Returns the number of days in a time span.
+		</HelpItem>
+		<HelpItem Name="dec" Topic="dec function">
+			Usage: dec(X)
+			Returns the value of X, formatted as a decimal number.
+		</HelpItem>
+		<HelpItem Name="floor" Topic="floor function">
+			Usage: floor(X)
+			Returns the largest integer less than or equal to X.
+		</HelpItem>
+		<HelpItem Name="hex" Topic="hex function">
+			Usage: hex(X)
+			Returns the value of X, formatted as a hexadecimal number.
+		</HelpItem>
+		<HelpItem Name="hour" Topic="hour function">
+			Usage: hour(X)
+			Returns the hour in a date or time span.
+		</HelpItem>
+		<HelpItem Name="hours" Topic="hours function">
+			Usage: hours(X)
+			Returns the number of hours in a time span.
+		</HelpItem>
+		<HelpItem Name="if" Topic="if function">
+			Usage: if(X, Y, Z)
+			If X is non-zero, this function returns Y; otherwise Z is returned.
+			
+			Usage: if(X, A, Y, B, ... Z)
+			If X is non-zero, this function returns A.  If X is zero, it then checks if Y is non-zero; if so, the function returns B.  Otherwise it returns Z.  You may put as many pairs as you want prior to Z.
+		</HelpItem>
+		<HelpItem Name="lg" Topic="lg function">
+			Usage: lg(X)
+			Returns the base 2 logarithm of X.
+		</HelpItem>
+		<HelpItem Name="ln" Topic="ln function">
+			Usage: ln(X)
+			Returns the base 10 logarithm of X.
+		</HelpItem>
+		<HelpItem Name="log" Topic="log function">
+			Usage: log(X)
+			Returns the base 10 logarithm of X.
+
+			Usage: log(X, Y)
+			Returns the base Y logarithm of X.
+		</HelpItem>
+		<HelpItem Name="makedate" Topic="makedate function">
+			Usage:
+			makedate(year, month, day, hour, minute, second, msec)
+			makedate(year, month, day, hour, minute, second)
+			makedate(year, month, day, hour, minute)
+			makedate(year, month, day, hour)
+			makedate(year, month, day)
+
+			Returns a date and time with the specified values.
+		</HelpItem>
+		<HelpItem Name="max" Topic="max function">
+			Usage: max(X, Y, Z ...)
+			Returns the maximum of the values passed in.
+		</HelpItem>
+		<HelpItem Name="min" Topic="min function">
+			Usage: min(X, Y, Z ...)
+			Returns the minimum of the values passed in.
+		</HelpItem>
+		<HelpItem Name="minute" Topic="minute function">
+			Usage: minute(X)
+			Returns the minute in a date or time span.
+		</HelpItem>
+		<HelpItem Name="minutes" Topic="minutes function">
+			Usage: minutes(X)
+			Returns the number of minutes in a time span.
+		</HelpItem>
+		<HelpItem Name="month" Topic="month function">
+			Usage: month(X)
+			Returns the month in a date or time span.
+		</HelpItem>
+		<HelpItem Name="msec" Topic="msec function">
+			Usage: msec(X)
+			Returns the millisecond in a date time time span.
+		</HelpItem>
+		<HelpItem Name="msecs" Topic="msecs function">
+			Usage: msecs(X)
+			Returns the number of milliseconds in a time span.
+		</HelpItem>
+		<HelpItem Name="oct" Topic="oct function">
+			Usage: oct(X)
+			Returns the value of X, formatted as an octal number.
+		</HelpItem>
+		<HelpItem Name="pow" Topic="pow function">
+			Usage: pow(X, Y)
+			Returns the value of X raised to the power of Y.
+		</HelpItem>
+		<HelpItem Name="rand" Topic="rand function">
+			Usage: rand()
+			Returns a random value between 0 and 1.
+			
+			Usage: rand(X)
+			Returns a random value between 0 and X.
+			
+			Usage: rand(X, Y)
+			Returns a random value between X and Y.
+		</HelpItem>
+		<HelpItem Name="round" Topic="round function">
+			Usage: round(X)
+			Returns the value of X, rounded to the nearest whole number.
+			
+			Usage: round(X, Y)
+			Returns the value of X, rounded to Y decimal places.
+			Y must be between 0 and 20.
+		</HelpItem>
+		<HelpItem Name="sci" Topic="sci function">
+			Usage: sci(X)
+			Returns the value of X, formatted as a scientific number.
+		</HelpItem>
+		<HelpItem Name="second" Topic="second function">
+			Usage: second(X)
+			Returns the second in a date or time span.
+		</HelpItem>
+		<HelpItem Name="seconds" Topic="seconds function">
+			Usage: seconds(X)
+			Returns the number of seconds in a time span.
+		</HelpItem>
+		<HelpItem Name="sin" Topic="sin function">
+			Usage: sin(X)
+			Returns the sine of the angle X.
+		</HelpItem>
+		<HelpItem Name="sinh" Topic="sinh function">
+			Usage: sinh(X)
+			Returns the hyperbolic sine of the angle X.
+		</HelpItem>
+		<HelpItem Name="sqrt" Topic="sqrt function">
+			Usage: sqrt(X)
+			Returns the square-root of X.
+			
+			Note: If X is negative, an error will occur.
+		</HelpItem>
+		<HelpItem Name="tan" Topic="tan function">
+			Usage: tan(X)
+			Returns the tangent of angle X.
+		</HelpItem>
+		<HelpItem Name="tanh" Topic="tanh function">
+			Usage: tanh(X)
+			Returns the hyperbolic tangent of angle X.
+		</HelpItem>
+		<HelpItem Name="xor" Topic="xor function">
+			Usage: xor(X, Y)
+			Returns the bitwise exclusive-or of X and Y.
+		</HelpItem>
+		<HelpItem Name="year" Topic="year function">
+			Usage: year(X)
+			Returns the year in a date or time span.
+		</HelpItem>
+		
+		<!-- Variables -->
+		<HelpItem Name="answer" Topic="answer variable">
+			This variable contains the result from the previous equation.
+		</HelpItem>
+		<HelpItem Name="now" Topic="now variable">
+			This variable contains the current date and time.
+		</HelpItem>
+		<HelpItem Name="date" Topic="date variable">
+			This variable contains the current date, as of midnight.
+		</HelpItem>
+		<HelpItem Name="time" Topic="time variable">
+			This variable contains the current time, as a time span.
+		</HelpItem>
+
+		<!-- Operators -->
+		<HelpItem Name="+" Topic="operator + - Addition">
+			Usage: X + Y
+			Returns the sum of X and Y.
+		</HelpItem>
+		<HelpItem Name="-" Topic="operator - - Subtraction">
+			Usage: X - Y
+			Returns the value of X minus Y.
+		</HelpItem>
+		<HelpItem Name="*" Topic="operator * - Multiplication">
+			Usage: X * Y
+			Returns the product of X and Y.
+		</HelpItem>
+		<HelpItem Name="/" Topic="operator / - Division">
+			Usage: X / Y
+
+			If &quot;Use Divide &apos;/&apos; Operator For Fractions&quot; is checked in the settings dialog, this will return a fractional value of X above Y; otherwise it will return X divided by Y.
+
+			Note: If Y is zero, an error will occur.
+		</HelpItem>
+		<HelpItem Name="%" Topic="operator % - Modulus">
+			Usage: X % Y
+			Returns the remainder of X divided by Y.
+		</HelpItem>
+		<HelpItem Name="^" Topic="operator ^ - Power or Bitwise-Xor">
+			Usage: X ^ Y
+			
+			If &quot;Use The Power &apos;^&apos; Operator As XOR&quot; is checked in the settings dialog, this operator will return the bitwise exclusive-or of X and Y; otherwise it will return the value of X raised to the power of Y.
+		</HelpItem>
+		<HelpItem Name="&lt;&lt;" Topic="operator &lt;&lt; - Bitwise-Shift-Left">
+			Usage: X &lt;&lt; Y
+			Returns the value of X, bitwise shifted left by Y bits.
+		</HelpItem>
+		<HelpItem Name="&gt;&gt;" Topic="operator &gt;&gt; - Bitwise-Shift-Right">
+			Usage: X &gt;&gt; Y
+			Returns the value of X, bitwise shifted right by Y bits.
+		</HelpItem>
+		<HelpItem Name="|" Topic="operator | - Bitwise-Or">
+			Usage: X | Y
+			Returns the bitwise-or of X and Y.
+		</HelpItem>
+		<HelpItem Name="&amp;" Topic="operator &amp; - Bitwise-And">
+			Usage: X &amp; Y
+			Returns the bitwise-and of X and Y.
+		</HelpItem>
+		<HelpItem Name="~" Topic="operator ~ - Bitwise-Not">
+			Usage: ~X
+			Returns the bitwise-not value of X.
+		</HelpItem>
+		<HelpItem Name="+=" Topic="operator += - Addition Assignment">
+			Usage: X += Y
+			Assigns the value of X + Y to variable X.
+		</HelpItem>
+		<HelpItem Name="-=" Topic="operator -= - Subtraction Assignment">
+			Usage: X -= Y
+			Assigns the value of X - Y to variable X.
+		</HelpItem>
+		<HelpItem Name="*=" Topic="operator *= - Multiplication Assignment">
+			Usage: X *= Y
+			Assigns the value of X * Y to variable X.
+		</HelpItem>
+		<HelpItem Name="/=" Topic="operator /= - Division Assignment">
+			Usage: X /= Y
+			Assigns the value of X / Y to variable Y.
+		</HelpItem>
+		<HelpItem Name="%=" Topic="operator %= - Modulus Assignment">
+			Usage: X %= Y
+			Assigns the value of X % Y to variable X.
+		</HelpItem>
+		<HelpItem Name="^=" Topic="operator ^= - Power or Bitwise-Xor Assignment">
+			Usage: X ^= Y
+			Assigns the value of X ^ Y to variable X.
+			
+			Note: The function of the &apos;^&apos; operator can differ depending on the value of the &quot;Use The Power &apos;^&apos; Operator As XOR&quot; checkbox in the settings dialog.
+		</HelpItem>
+		<HelpItem Name="&lt;&lt;=" Topic="operator &lt;&lt;= - Bitwise-Shift-Left Assignment">
+			Usage: X &lt;&lt; Y
+			Assigns the value of X &lt;&lt; Y to variable X.
+		</HelpItem>
+		<HelpItem Name="&gt;&gt;=" Topic="operator &gt;&gt;= - Bitwise-Shift-Right Assignment">
+			Usage: X &gt;&gt; Y
+			Assigns the value of X &gt;&gt; Y to variable X.
+		</HelpItem>
+		<HelpItem Name="|=" Topic="operator |= - Bitwise-Or Assignment">
+			Usage: X |= Y
+			Assigns the value of X | Y to variable X.
+		</HelpItem>
+		<HelpItem Name="&amp;=" Topic="operator &amp;= - Bitwise-And Assignment">
+			Usage: X &amp;= Y
+			Assigns the value of X &apos; Y to variable X.
+		</HelpItem>
+		<HelpItem Name="=" Topic="operator = - Assignment">
+			Usage: X = Y
+			Assigns the value of Y to variable X.
+		</HelpItem>
+		<HelpItem Name="\" Topic="operator \ - Fraction">
+			Usage: X \ Y
+			Creates a fractional value, with X above Y.
+
+			If &quot;Use Divide &apos;/&apos; Operator For Fractions&quot; is checked in the settings dialog, fractions may also be created using the &apos;/&apos; operator.
+			
+			Note: If Y is zero, and error will occur.
+		</HelpItem>
+		<HelpItem Name="&apos;" Topic="operator &apos; - Feet">
+			Usage: X&apos;
+			Creates a fractional value consisting of X feet.
+			
+			Feet and inches can be combined together.  For example:
+			12&apos; 4 1\2&quot;
+			will create a fraction with a value equal to 148.5 inches.
+		</HelpItem>
+		<HelpItem Name="&quot;" Topic="operator &quot; - Inches">
+			Usage: X&quot;
+			Creates a fractional value consisting of X inches.
+
+			Feet and inches can be combined together.  For example:
+			12&apos; 4 1\2&quot;
+			will create a fraction with a value equal to 148.5 inches.
+		</HelpItem>
+		<HelpItem Name="==" Topic="operator == - Boolean Equal">
+			Usage: X == Y
+			Returns 1 if X and Y are equal, or 0 if not.
+		</HelpItem>
+		<HelpItem Name="!=" Topic="operator != - Boolean Not Equal">
+			Usage: X != Y
+			Returns 1 if X and Y are not equal, or 0 if they are.
+		</HelpItem>
+		<HelpItem Name="&lt;" Topic="operator &lt; - Boolean Less Than">
+			Usage: X &lt; Y
+			Returns 1 if X is less than Y, or 0 if not.
+		</HelpItem>
+		<HelpItem Name="&lt;=" Topic="operator &lt;= - Boolean Less Than Or Equal">
+			Usage: X &lt;= Y
+			Returns 1 if X is less than or equal to Y, or 0 if not.
+		</HelpItem>
+		<HelpItem Name="&gt;" Topic="operator &gt; - Boolean Greater Than">
+			Usage: X &gt; Y
+			Returns 1 if X is greater than Y, or 0 if not.
+		</HelpItem>
+		<HelpItem Name="&gt;=" Topic="operator &gt;= - Boolean Greater Than Or Equal">
+			Usage: X &gt;= Y
+			Returns 1 if X is greater than or equal to Y, or 0 if not.
+		</HelpItem>
+		<HelpItem Name="!" Topic="operator ! - Boolean Not">
+			Usage: !X
+			Returns 1 if X is zero, or 1 if non-zero.
+		</HelpItem>
+		<HelpItem Name="&amp;&amp;" Topic="operator &amp;&amp; - Boolean And">
+			Usage: X &amp;&amp; Y
+			Returns 1 if both X and Y are non-zero; otherwise it returns 0.
+
+			Note: Unlike most C languages, both sides of the operator are executed prior to the operator itself.
+		</HelpItem>
+		<HelpItem Name="||" Topic="operator || - Boolean Or">
+			Usage: X || Y
+			Returns 1 if either X or Y are non-zero; otherwise it returns 0.
+
+			Note: Unlike most C languages, both sides of the operator are executed prior to the operator itself.
+		</HelpItem>
+		<HelpItem Name="?" Topic="operator ?: - Conditional">
+			Usage: X ? Y : Z
+			If X is non-zero, it will return Y, otherwise Z.
+			
+			Usage: A ? B : C ? D : ... E
+			If A is non-zero, it will return B.  If A is zero and C is non-zero, it will return D.  If A and C are both zero, then it will return E.
+		</HelpItem>
+	</Help>
+</Calc>
